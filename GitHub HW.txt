@@ -1,0 +1,55 @@
+﻿GitHub. HW_1
++1. На локальном репозитории сделать ветки для: 
+- Postman
+- Jmeter
+- CheckLists
+- Bag Reports
+- SQL
+- Charles
+- Mobile testing
+
+-> git branch folfername
+
++2. Запушить все ветки на внешний репозиторий -u origin
++3. В ветке Bag Reports сделать текстовый документ со структурой баг репорта touch -> vim
++4. Запушить структуру багрепорта на внешний репозиторий git commit -am "create new file"; git push
++5. Вмержить ветку Bag Reports в Main -> git checkout master; git merge Bug_reports
++6. Запушить main на внешний репозиторий.
++7. В ветке CheckLists набросать структуру чек листа.
++8. Запушить структуру на внешний репозиторий
++9. На внешнем репозитории сделать Pull Request ветки CheckLists в main
+10. Синхронизировать Внешнюю и Локальную ветки Main 
+ 
+   
+Kalipsou@DESKTOP-U1GHR48 MINGW64 /d/Github/My_skills (Bug_reports)
+$ git add .
+warning: LF will be replaced by CRLF in Structure_of_a_bug_report.txt.
+The file will have its original line endings in your working directory
+
+Kalipsou@DESKTOP-U1GHR48 MINGW64 /d/Github/My_skills (Bug_reports)
+$ git commit -m "create new file"
+[Bug_reports 9b6fb99] create new file
+ 1 file changed, 6 insertions(+)
+ create mode 100644 Structure_of_a_bug_report.txt
+
+Kalipsou@DESKTOP-U1GHR48 MINGW64 /d/Github/My_skills (Bug_reports)
+$ git status
+On branch Bug_reports
+Your branch is ahead of 'origin/Bug_reports' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Kalipsou@DESKTOP-U1GHR48 MINGW64 /d/Github/My_skills (Bug_reports)
+$ git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 375 bytes | 375.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/KalipsouOu/My_skills.git
+   0514d6e..9b6fb99  Bug_reports -> Bug_reports
+
+
