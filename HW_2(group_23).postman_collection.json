@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "397655b2-5a32-467b-848f-8602275ed391",
+		"name": "HW_2(group_23)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "login",
+							"value": "Lena",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "qwerty",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}login",
+					"host": [
+						"{{url}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var start_salory = jsonData.start_qa_salary; \r",
+							"var salary_6m = jsonData.qa_salary_after_6_months;\r",
+							"var salary_12m = jsonData.qa_salary_after_12_months;\r",
+							"\r",
+							"var salary_18m = json.parse(pm.response.text())\r",
+							"for(var i=0; i< salary_18m.length; i++) {\r",
+							"    console.log(\"u_salary_1_5_year: \"+ resObj[2].u_salary_1_5_year);\r",
+							"};\r",
+							"\r",
+							"// status code 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//structure of json\r",
+							"pm.test(\"Structure of .json\", () => {\r",
+							"    pm.expect(jsonData).to.have.all.keys(\"start_qa_salary\", \"qa_salary_after_6_months\", \"qa_salary_after_12_months\", \"person\")\r",
+							"});\r",
+							"\r",
+							"//testing indexes\r",
+							"pm.test(\"Indexes\", function () {\r",
+							"    pm.expect(start_salory).to.eql(3000);\r",
+							"    pm.expect(salary_6m).to.eql(start_salory*2);\r",
+							"    pm.expect(salary_12m).to.eql(start_salory*2.9);\r",
+							"    pm.expect(salary_18m).to.eql(start_salory*4);\r",
+							"});\r",
+							"\r",
+							"    \r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"age\": \"29\",\r\n    \"salary\": \"3000\",\r\n    \"name\": \"Lena\",\r\n    \"auth_token\": \"/s34lfgbj/Lena/jjd909/14292kjkWpqc3091qwerty370673evny\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}user_info",
+					"host": [
+						"{{url}}user_info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new_data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var sal_0 =  jsonData.salary[0];\r",
+							"var sal_1 = Number(jsonData.salary[1]);\r",
+							"var sal_2 = Number(jsonData.salary[2]);\r",
+							"\r",
+							"// status code 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"//structure of json\r",
+							"pm.test(\"Structure of .json\", () => {\r",
+							"    pm.expect(jsonData).to.have.all.keys(\"name\", \"age\", \"salary\");\r",
+							"});\r",
+							"\r",
+							"//testing indexes\r",
+							"pm.test(\"Indexes\", function () {\r",
+							"    pm.expect(sal_0).to.eql(3000);\r",
+							"    pm.expect(sal_1).to.eql(sal_0*2);\r",
+							"    pm.expect(sal_2).to.eql(sal_0*3);\r",
+							"});\r",
+							"\r",
+							"// Comparisons of salary\r",
+							"pm.test(\"Comparisons of salarys\", function () {\r",
+							"    pm.expect(sal_2).to.be.above(sal_0);\r",
+							"    pm.expect(sal_2).to.be.above(sal_1);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "29",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "3000",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "lena",
+							"type": "text"
+						},
+						{
+							"key": "auth_token",
+							"value": "/s34lfgbj/Lena/jjd909/52821kjkWpqc3438qwerty414480evny",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}new_data",
+					"host": [
+						"{{url}}new_data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_pet_info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"let weight = json.parse(pm.request.weight.formdata).weight;\r",
+							"    pm.environment.set('weight', weight);\r",
+							"\r",
+							"/* let businessType = JSON.parse(pm.request.body.raw).businessType;\r",
+							"    pm.environment.set('businessType', businessType);\r",
+							" */\r",
+							"\r",
+							"/* var jsonData = pm.response.json();\r",
+							"var sal_0 =  jsonData.salary[0];\r",
+							"var sal_1 = Number(jsonData.salary[1]);\r",
+							"var sal_2 = Number(jsonData.salary[2]);\r",
+							" */\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Structure of .json\", () => {\r",
+							"    pm.expect(jsonData).to.have.all.keys(\"age\", \"daily_food\", \"daily_sleep\", \"name\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Indexes\", function () {\r",
+							"    pm.expect(daily_food).to.eql(weight*0.012);\r",
+							"    pm.expect(daily_sleep).to.eql(weight*2.5);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "29",
+							"type": "text"
+						},
+						{
+							"key": "weight",
+							"value": "{{weight}}",
+							"type": "text"
+						},
+						{
+							"key": "name ",
+							"value": "Lena",
+							"type": "text"
+						},
+						{
+							"key": "auth_token",
+							"value": "{{token}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5005/test_pet_info",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"test_pet_info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_test_use",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Structure of .json\", () => {\r",
+							"    pm.expect(jsonData).to.have.all.keys(\"age\", \"salary\", \"name\", \"family\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "age",
+							"value": "29",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Lena",
+							"type": "text"
+						},
+						{
+							"key": "auth_token",
+							"value": "{{token}}",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "3000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5005/get_test_user",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"get_test_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "currency",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "auth_token",
+							"value": "{{token}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5005/currency",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"currency"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
