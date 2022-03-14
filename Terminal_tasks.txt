@@ -60,7 +60,7 @@
     вывести дату и время -> date -u
 =========
 
-Задание *
+Task *
 1) Send an http request to the serverhttp://162.55.220.72:5005/object_info_3?name=Vadim&age=32&salary=1000
 -> curl "http://162.55.220.72:5005/object_info_3?name=Vadim&age=32&salary=1000"
     Отправить http запрос на сервер http://162.55.220.72:5005/object_info_3?name=Vadim&age=32&salary=1000
