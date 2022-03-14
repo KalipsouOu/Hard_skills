@@ -1,34 +1,73 @@
-1. Посмотреть где я -> pwd
-2. Создать папку (название папки New) -> mkdir New
-3. Зайти в папку (название папки New) -> cd New
-4. Создать 3 папки (название папок n_1, n_2, n_3) -> mkdir n_1 n_2 n_3
-5. Зайти в любоую папку -> cd n_1
-6. Создать 5 файлов (3 txt, 2 json) -> touch text1.txt text2.txt text3.txt jsn1.json jsn2.json
-7. Создать 3 папки (названия папок nf1, nf2, nf3) -> mkdir nf1 nf2 nf3
-8. Вывести список содержимого папки -> ls -la
-9. + Открыть любой txt файл -> vim text1.txt
-10. + написать туда что-нибудь, любой текст. -> нажимаем i для входа в режим редактирования, вводим текст Homework 1.
-11. + сохранить и выйти -> нажимаем Esc для выхода из режима редактирования, вводим команду :wq, которая возвращает нас к терминалу
-12. Выйти из папки на уровень выше -> cd ..
-—
-13. переместить любые 2 файла, которые вы создали, в любую другую папку -> 
-mv ./n_1/{text2.txt,text3.txt} ./n_2/
-14. скопировать любые 2 файла, которые вы создали, в любую другую папку -> 
-cp ./n_2/{text2.txt,text3.txt} ./n_3/
-15. Найти файл по имени -> find -name text1.txt
-16. просмотреть содержимое в реальном времени (команда grep) изучите как она работает -> tail -f text2.txt
-17. вывести несколько первых строк из текстового файла -> head -3 text2.txt 
-18. вывести несколько последних строк из текстового файла -> tail -4 text2.txt
-19. просмотреть содержимое длинного файла (команда less) изучите как она работает -> less text2.txt
+1. Know where I am -> pwd
+    Посмотреть где я -> pwd
+  
+2. Create a folder (folder's name - New) -> mkdir New
+    Создать папку (название папки New) -> mkdir New
+
+3. Go to the folder (folder's name - New) -> cd New
+    Зайти в папку (название папки New) -> cd New
+
+4. Create 3 folders (folder's names n_1, n_2, n_3) -> mkdir n_1 n_2 n_3
+    Создать 3 папки (название папок n_1, n_2, n_3) -> mkdir n_1 n_2 n_3
+
+5. Go to any folder -> cd n_1
+    Зайти в любоую папку -> cd n_1
+    
+6. Create 5 files (3 txt, 2 json)-> touch text1.txt text2.txt text3.txt jsn1.json jsn2.json
+    Создать 5 файлов (3 txt, 2 json) -> touch text1.txt text2.txt text3.txt jsn1.json jsn2.json
+    
+7. Create 3 folders (folder names nf1, nf2, nf3) -> mkdir nf1 nf2 nf3
+    Создать 3 папки (названия папок nf1, nf2, nf3) -> mkdir nf1 nf2 nf3
+
+8. List folder contents (Вывести список содержимого папки) -> ls -la
+    Вывести список содержимого папки -> ls -la
+    
+9. Open any txt file -> vim text1.txt
+    Открыть любой txt файл -> vim text1.txt
+    
+10. Add any text there -> press 'i' to enter editing mode, enter the text Homework 1.
+    Написать туда что-нибудь, любой текст) -> нажимаем i для входа в режим редактирования, вводим текст Homework 1.
+    
+11. save and exit -> press Esc to exit edit mode, enter the command: wq, which returns us to the terminal
+    сохранить и выйти -> нажимаем Esc для выхода из режима редактирования, вводим команду :wq, которая возвращает нас к терминалу
+    
+12. Exit the folder one level up -> cd ..
+    Выйти из папки на уровень выше -> cd ..
+
+13. move any 2 files you created to any other folder -> mv ./n_1/{text2.txt,text3.txt} ./n_2/
+    переместить любые 2 файла, которые вы создали, в любую другую папку -> mv ./n_1/{text2.txt,text3.txt} ./n_2/
+    
+14. copy any 2 files you created to any other folder -> cp ./n_2/{text2.txt,text3.txt} 
+    скопировать любые 2 файла, которые вы создали, в любую другую папку -> cp ./n_2/{text2.txt,text3.txt} ./n_3/
+    
+15. Find a file by name -> find -name text1.txt
+    Найти файл по имени -> find -name text1.txt
+    
+16. view content in real time (grep command) and learn how it works -> tail -f text2.txt
+    просмотреть содержимое в реальном времени (команда grep) изучите как она работает -> tail -f text2.txt
+
+17. output the first few lines from a text file -> head -3 text2.txt
+    вывести несколько первых строк из текстового файла -> head -3 text2.txt 
+    
+18. output the last few lines from a text file -> tail -4 text2.txt
+    вывести несколько последних строк из текстового файла -> tail -4 text2.txt
+    
+19. view the contents of a long file (less command) learn how it works -> less text2.txt (then enter q to exit the file view mode)
+    просмотреть содержимое длинного файла (команда less) изучите как она работает -> less text2.txt
 (далее ввести q для выхода из режима просмотра файла)
-20. вывести дату и время -> date -u
+
+20. display date and time -> date -u
+    вывести дату и время -> date -u
 =========
 
 Задание *
-1) Отправить http запрос на сервер.
-http://162.55.220.72:5005/object_info_3?name=Vadim&age=32&salary=1000
+1) Send an http request to the serverhttp://162.55.220.72:5005/object_info_3?name=Vadim&age=32&salary=1000
 -> curl "http://162.55.220.72:5005/object_info_3?name=Vadim&age=32&salary=1000"
-2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13
+    Отправить http запрос на сервер http://162.55.220.72:5005/object_info_3?name=Vadim&age=32&salary=1000
+-> curl "http://162.55.220.72:5005/object_info_3?name=Vadim&age=32&salary=1000"
+
+2) Write a script that will automatically execute the items 3, 4, 5, 6, 7, 8, 13:
+    Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13:
 ->
 #!/bin/bash
 cd New
@@ -38,7 +77,3 @@ touch t1.txt t2.txt t3.txt j1.json j2.json
 mkdir f1 f2 f3
 ls -la
 mv ../one/{t1.txt,t2.txt} ../two/
-
-
-
-
